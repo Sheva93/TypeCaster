@@ -8,7 +8,6 @@ import re
 import uuid
 from datetime import datetime
 
-
 class TypeCaster:
     def __init__(self):
         self.mode_correct = False
@@ -165,51 +164,14 @@ class TypeCaster:
                 
         return result
 
-    async def get_cast_method(self, datatype):
-        if datatype == "float":
-            return self.float_cast
-        if datatype == "integer" or datatype == "int":
-            return self.integer_cast
-        if datatype == "uuid":
-            return self.uuid_cast
-        if datatype == "datetime":
-            return self.datetime_cast
-        if datatype == "string" or datatype == "str":
-            return self.string_cast
-
-        return False
-
-    async def correct_data(self, list_values, datatype):
-        self.mode_correct = True
-        corrected_values = []
-        cast_method = await self.get_cast_method(datatype)
-
-        if not cast_method:
-            return {"error": "Указанный тип данных "+datatype+" не поддерживается."}
-        
-        for v in list_values:
-            res = await cast_method(v)
-            corrected_values.append(res["value"])
-        
-        return corrected_values
-
-    async def validate_data(self, list_values, datatype):
-        self.mode_correct = False
-        cast_method = await self.get_cast_method(datatype)
-
-        if not cast_method:
-            return {"error": "Указанный тип данных "+datatype+" не поддерживается."}
-        
-        bad_values = []
-
-        for i, v in enumerate(list_values):
-            res = await cast_method(v)
-        
-            res["value"] = v
-            res["row"] = i
-            
-            if res["error"]:
-                del res["error"]
-                bad_values.append(res)
-                
-        return bad_values
+    #...
+    # async def ?????????
+    #...
+    
+    #...
+    # async def ?????????
+    #...
+    
+    #...
+    # async def ?????????
+    #...
